@@ -11,7 +11,7 @@ nav {
     top: 0;
 }
 
-nav#navigation > div > div > div > ul {
+nav#navigation>div>div>div>ul {
     display: flex;
     justify-content: flex-end;
     padding: 0%;
@@ -19,16 +19,16 @@ nav#navigation > div > div > div > ul {
     color: white;
 }
 
-nav#navigation > div > div > div > ul > li {
+nav#navigation>div>div>div>ul>li {
     margin: 2%;
 }
 
-nav#navigation > div > div > div > ul > li > a {
+nav#navigation>div>div>div>ul>li>a {
     text-decoration: none;
     color: white;
 }
 
-nav#navigation > div > div > div > ul > li > a:hover {
+nav#navigation>div>div>div>ul>li>a:hover {
     text-decoration: underline;
     color: white;
 }
@@ -40,4 +40,18 @@ div.section {
     background-color: #ffffff97;
     border-color: white;
     border-radius: 5px;
+}
+
+form#signupform>div {
+    margin-bottom: 1%;
+}
+
+form#signupform>div>p {
+    margin-bottom: 2px;
+}
+
+.required::after {
+    content: "(必須)";
+    color: red;
+    font-size: small;
 }

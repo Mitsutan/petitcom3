@@ -1,0 +1,12 @@
+# これはサーバの設定ファイルです
+
+# phpのエラーを画面表示（本番では消す）
+php_flag display_errors On
+php_value error_reporting 6135
+# ---
+
+# .htmlを.phpとして認識させる
+<FilesMatch "\.html$">
+  AddType application/x-httpd-php .html
+</FilesMatch>
+# ---

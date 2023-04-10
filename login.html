@@ -43,26 +43,9 @@ $db = new DBManager();
         <div class="row p-1">
             <div class="col-12">
                 <div class="section">
-                    <h1>新規ユーザ登録</h1>
-                    <h2>登録することのメリット</h2>
-                    <ul>
-                        <li>記事の投稿・編集・削除ができるようになる</li>
-                        <li>記事をユーザ名・NNIDで絞り込めるのでほかの人が探しやすい</li>
-                        <li>投稿された記事にリアクションが送れる</li>
-                    </ul>
-                    <h2>どうしても匿名がいいな...</h2>
-                    <p>
-                        こちらで用意した「名無しさん」というアカウントがありますのでそちらにログインして投稿してください。
-                        ただし悪意を持った第三者にこのアカウントで投稿した記事が荒らされる可能性があることにご留意ください。
-                        （バックアップを取っていないので復元することができません。）
-                        またこのアカウントではリアクションが送れません。
-                    </p>
-                    <p>
-                        メールアドレス：(空欄)<br />
-                        パスワード：hoge
-                    </p>
-                    <h2>フォーム</h2>
-                    <form id="form" action="./php/signup.php" method="post">
+                    <h1>ログイン</h1>
+                    <a href="signup.html">新規ユーザ登録はこちら</a>
+                    <form id="form" action="./php/login.php" method="post">
                         <div>
                             <p class="required">メールアドレス</p>
                             <input type="email" name="mail">
@@ -70,14 +53,6 @@ $db = new DBManager();
                         <div>
                             <p class="required">パスワード</p>
                             <input type="password" name="pass">
-                        </div>
-                        <div>
-                            <p class="required">ユーザ名</p>
-                            <input type="text" name="name">
-                        </div>
-                        <div>
-                            <p class="required">NNID</p>
-                            <input type="text" name="nnid">
                         </div>
                         <div>
                             <input type="submit" value="登録">

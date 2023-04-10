@@ -34,7 +34,9 @@ nav#navigation>div>div>div>ul>li>a:hover {
 }
 
 div.section {
-    margin: 1vw;
+    /* margin: 1vw; */
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     padding: 1%;
     border: solid 5px;
     background-color: #ffffff97;
@@ -42,11 +44,11 @@ div.section {
     border-radius: 5px;
 }
 
-form#signupform>div {
+form#form>div {
     margin-bottom: 1%;
 }
 
-form#signupform>div>p {
+form#form>div>p {
     margin-bottom: 2px;
 }
 
@@ -54,4 +56,16 @@ form#signupform>div>p {
     content: "(必須)";
     color: red;
     font-size: small;
+}
+
+div#imgfield {
+    width: fit-content;
+    margin-bottom: 1%;
+    width: 50%;
+}
+
+div#imglist {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1%;
 }

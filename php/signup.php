@@ -25,14 +25,9 @@
 
             // 新規登録完了
             echo '登録中...';
-            // $_SESSION['login_id'] = $_POST["mail"];
-            // $_SESSION['login_ln'] = $_POST['sei'];
-            // $_SESSION['login_fn'] = $_POST['name'];
-            // $_SESSION['login_post'] = $_POST['post'];
-            // $_SESSION['login_pref'] = $_POST['pref'];
-            // $_SESSION['login_ad1'] = $_POST['ad1'];
-            // $_SESSION['login_ad2'] = $_POST['ad2'];
-            // echo "<script>location.replace('./user_kanryo.html');</script>";
+            $_SESSION['login_id'] = $result['user_mail'];
+            $_SESSION['login_nnid'] = $result['user_nnid'];
+            echo "<script>location.replace('../welcome.html');</script>";
             exit;
     }
 ?>

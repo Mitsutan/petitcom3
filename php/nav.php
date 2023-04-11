@@ -13,9 +13,9 @@
     } else {
         echo '<li><a href="./login.html">ログイン</a></li>';
     }
-    echo '<li><a href="">検索</a></li>';
-    echo '<li><a href="">問い合わせ</a></li>';
-    echo '<li><a href="">READ ME</a></li>';
+    echo '<li><a href="./search.html">検索</a></li>';
+    echo '<li><a href="./contact.html">問い合わせ</a></li>';
+    echo '<li><a href="./readme.html">READ ME</a></li>';
     echo '</ul>';
     echo '</div>';
     echo '</div>';

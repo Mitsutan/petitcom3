@@ -10,6 +10,7 @@
     if (isset($_SESSION['login_id'])) {
         echo '<li><a href="./php/logout.php">ログアウト</a></li>';
         echo '<li><a href="./writing.html">新規記事投稿</a></li>';
+        echo '<li><a href="./mypage.html">プロフィール</a></li>';
     } else {
         echo '<li><a href="./login.html">ログイン</a></li>';
     }

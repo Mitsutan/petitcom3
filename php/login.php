@@ -10,8 +10,8 @@
         try {
             $result = $db->loginUser($_POST["mail"],$_POST["pass"]);
             // ユーザ情報をセッション変数に入れてトップページに飛ばす
-            $_SESSION['login_id'] = $result['user_mail'];
-            $_SESSION['login_nnid'] = $result['user_nnid'];
+            $_SESSION['login_id'] = $result['user_id'];
+            // $_SESSION['login_nnid'] = $result['user_nnid'];
             echo "<script>location.replace('../index.html');</script>";
         } catch(PDOException $e) {
             if($e->getCode() == '2002') {

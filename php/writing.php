@@ -12,4 +12,19 @@
 
     $desc = $db->regexHtml($_POST['projectdesc']);
     echo $desc;
+
+    // タグ分割---
+    $str = $_POST['projecttags'];
+    $delimiter = " ";
+    $token = strtok($str, $delimiter);
+    $arr = array();
+
+    while ($token !== false) {
+        array_push($arr, $token);
+        $token = strtok($delimiter);
+    }
+
+    print_r($arr);
+    // ---
+
 ?>

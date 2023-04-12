@@ -1,0 +1,63 @@
+<?php
+// セッション
+session_start();
+
+// データベースマネージャの読込
+require_once "./php/DBManager.php";
+$db = new DBManager();
+
+$result = $db->getUser($_SESSION['login_id']);
+?>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>プチコン３号作品倉庫</title>
+</head>
+
+<body>
+    <?php require './php/nav.php'; ?>
+    <div class="container-fluid">
+        <div class="row p-1">
+            <div class="col-12">
+                <div class="section">
+                    <h1>プロフィール</h1>
+                    <form id="form" action="./php/" method="post">
+                        <div>
+                            <p class="required">メールアドレス</p>
+                            <input type="email" name="mail" value="<?php echo $result['user_mail'] ?>">
+                        </div>
+                        <div>
+                            <p class="required">ユーザ名</p>
+                            <input type="text" name="name" value="<?php echo $result['user_name'] ?>">
+                        </div>
+                        <div>
+                            <p class="required">NNID</p>
+                            <input type="text" name="nnid" value="<?php echo $result['user_nnid'] ?>">
+                        </div>
+                        <div>
+                            <p>概要</p>
+                            <textarea name="description" cols="35" rows="10" value="<?php echo $result['user_description'] ?>" placeholder="自己紹介などを書いてみましょう"></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" value="変更">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

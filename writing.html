@@ -43,11 +43,33 @@ $db = new DBManager();
                         </div>
                         <div>
                             <p class="required">公開キー</p>
-                            <input type="text" name="projectpk">
+                            <input type="text" name="projectpk" placeholder="A12BC3D">
                         </div>
                         <div>
                             <p class="required">概要</p>
-                            <textarea name="projectdesc" id="" cols="35" rows="10"></textarea>
+                            <textarea name="projectdesc" id="" cols="35" rows="10" placeholder="<h3>操作方法</h3>"></textarea>
+                            <div>
+                                次のhtmlタグが使用できます：
+                                a(リンク)
+                                p(段落)
+                                br(改行)
+                                i(斜体)
+                                b(太字)
+                                u(下線)
+                                ul(箇条書きリスト、liと併用)
+                                ol(番号付きリスト、liと併用)
+                                li(リスト項目)
+                                h3(見出し)<br />
+                                style属性は使用できません。（無視されます）
+                            </div>
+                        </div>
+                        <div>
+                            <p>タグ</p>
+                            <input type="text" name="projecttags">
+                            <div>
+                                「 」(半角スペース)区切りで複数入力可<br />
+                                表記ゆれを減らすためにタグ一覧のページをご確認ください。
+                            </div>
                         </div>
                         <div>
                             <input type="submit" value="投稿">

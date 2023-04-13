@@ -5,6 +5,10 @@ session_start();
 // データベースマネージャの読込
 require_once "./php/DBManager.php";
 $db = new DBManager();
+
+$db->OutPutlog();
+
+$result = $db->getUser($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,10 +31,10 @@ $db = new DBManager();
         <div class="row p-1">
             <div class="col-8">
                 <div class="section">
-                    <h1>user name</h1>
+                    <h1><?php echo $result['user_name'] ?></h1>
                     <h2>概要</h2>
                     <p>
-                        description
+                        <?php echo $result['user_description'] ?>
                     </p>
                     <h2>投稿記事</h2>
                 </div>

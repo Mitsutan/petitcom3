@@ -7,7 +7,7 @@
     $db = new DBManager();
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
-            $db->editUser($_SESSION['login_id'], $_POST['mail'], $_POST['name'], $_POST['nnid'], $_POST['description']);
+            $db->editUser($_SESSION['login_id'], $_POST['mail'], $_POST['name'], $_POST['nnid'], $db->regexHtml($_POST['description']));
         } catch (Exception $e) {
             echo $e->getMessage();
             exit;

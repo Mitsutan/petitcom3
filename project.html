@@ -5,6 +5,10 @@ session_start();
 // データベースマネージャの読込
 require_once "./php/DBManager.php";
 $db = new DBManager();
+
+$db->OutPutlog();
+
+$result = $db->getProject($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,7 +31,10 @@ $db = new DBManager();
         <div class="row p-1">
             <div class="col-8">
                 <div class="section">
-                    <h1>project name</h1>
+                    <h1><?php echo $result['project_name'] ?></h1>
+                    <div id="tagfield">
+
+                    </div>
                     <div id="imgfield">
                         <img class="mb-1" width="100%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic">
                         <div id="imglist">
@@ -38,9 +45,9 @@ $db = new DBManager();
                         </div>
                     </div>
                     <h2>公開キー</h2>
-                    <p class="text-uppercase">【hogehoge】</p>
+                    <p class="text-uppercase">【<?php echo $result['project_pk'] ?>】</p>
                     <h2>概要</h2>
-                    <p>description</p>
+                    <p><?php echo $result['project_description'] ?></p>
                     <div id="repfield">
                         <button id="good" type="button" class="btn btn-outline-primary">いいね！<span class="ms-1">0</span></button>
                         <button id="downloaded" type="button" class="btn btn-outline-success">ダウンロードした！<span class="ms-1">0</span></button>

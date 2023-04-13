@@ -6,12 +6,18 @@
     require_once "./DBManager.php";
     $db = new DBManager();
 
-    // if (is_uploaded_file($_FILES['projectimg']['tmp_name'])) {
-    //     $file='../img/projectimg/'.basename($_FILES['projectimg']['name']);
-    // }
-
-    $desc = $db->regexHtml($_POST['projectdesc']);
-    echo $desc;
+    $filesize = 0;
+    foreach ($_FILES['projectimg']['size'] as $key => $value) {
+        $filesize += $value;
+    }
+    if ($filesize > 200000) {
+        echo "ファイルサイズが大きすぎます：".($filesize - 200000)."kb over";
+        exit;
+    }
+    if (count($_FILES['projectimg']['size']) > 4) {
+        echo "画像は4枚までです";
+        exit;
+    }
 
     // タグ分割---
     $str = $_POST['projecttags'];
@@ -25,9 +31,10 @@
     }
 
     // print_r($arr);S
+    print_r($_FILES['projectimg']['tmp_name']);
     // ---
     try {
-        $db->submitProject($_SESSION['login_id'], $_POST['projectname'], $_POST['projectpk'], $desc, $arr);
+        $db->submitProject($_SESSION['login_id'], $db->regexHtml($_POST['projectname']), $db->regexHtml($_POST['projectpk']), $db->regexHtml($_POST['projectdesc']), $arr);
     } catch (Exception $e) {
         echo $e->getMessage();
     }

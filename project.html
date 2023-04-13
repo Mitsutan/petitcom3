@@ -21,6 +21,7 @@ $result = $db->getProject($_GET['id']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>プチコン３号作品倉庫</title>
 </head>
@@ -36,12 +37,19 @@ $result = $db->getProject($_GET['id']);
 
                     </div>
                     <div id="imgfield">
-                        <img class="mb-1" width="100%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic">
+                        <?php
+                            if (file_exists("./img/projectimg/".(int)$_GET['id']."/img0.png")) {
+                                echo '<img class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img0.png" alt="pic">';
+                            }
+                        ?>
                         <div id="imglist">
-                            <img width="20%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic1">
-                            <img width="20%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic2">
-                            <img width="20%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic3">
-                            <img width="20%" src="./img/projectimg/1678455260-s-1.jpg" alt="pic4">
+                            <?php
+                                for ($i = 0; $i < 4; $i++) {
+                                    if (file_exists("./img/projectimg/".(int)$_GET['id']."/img".$i.".png")) {
+                                        echo '<img width="20%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic'.$i.'">';
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                     <h2>公開キー</h2>
@@ -49,16 +57,15 @@ $result = $db->getProject($_GET['id']);
                     <h2>概要</h2>
                     <p><?php echo $result['project_description'] ?></p>
                     <div id="repfield">
-                        <button id="good" type="button" class="btn btn-outline-primary">いいね！<span class="ms-1">0</span></button>
-                        <button id="downloaded" type="button" class="btn btn-outline-success">ダウンロードした！<span class="ms-1">0</span></button>
-                        <button id="nice" type="button" class="btn btn-outline-danger">ステキ！<span class="ms-1">0</span></button>
-                        <button id="great" type="button" class="btn btn-outline-warning">すごい！<span class="ms-1">0</span></button>
-                        <button id="effort" type="button" class="btn btn-outline-secondary">がんばって！<span class="ms-1">0</span></button>
+                        <button id="good" type="button" class="btn btn-outline-primary"><i class="fa-regular fa-thumbs-up"></i>いいね！<span class="ms-1">0</span></button>
+                        <button id="downloaded" type="button" class="btn btn-outline-success"><i class="fa-solid fa-file-arrow-down"></i>ダウンロードした！<span class="ms-1">0</span></button>
+                        <button id="nice" type="button" class="btn btn-outline-danger"><i class="fa-regular fa-heart"></i>ステキ！<span class="ms-1">0</span></button>
+                        <button id="great" type="button" class="btn btn-outline-warning"><i class="fa-regular fa-face-surprise"></i>すごい！<span class="ms-1">0</span></button>
+                        <button id="effort" type="button" class="btn btn-outline-secondary"><i class="fa-regular fa-face-smile-wink"></i>がんばって！<span class="ms-1">0</span></button>
                     </div>
                 </div>
             </div>
             <?php require './php/prjlist.php'; ?>
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

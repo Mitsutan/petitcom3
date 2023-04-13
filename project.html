@@ -9,6 +9,7 @@ $db = new DBManager();
 $db->OutPutlog();
 
 $result = $db->getProject($_GET['id']);
+$user = $db->getUser($result['user_id']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -33,8 +34,16 @@ $result = $db->getProject($_GET['id']);
             <div class="col-8">
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
-                    <div id="tagfield">
-
+                    <p>
+                        投稿者：<?php echo $user['user_name']."・".$result['project_datetime'] ?>
+                    </p>
+                    <div class="m-1" id="tagfield">
+                        <?php
+                            $data = $db->getTagsByProject($_GET['id']);
+                            foreach ($data as $key) {
+                                echo '<a class="taglink" href="./search.html?searchtype=3&search='.$key['tag_name'].'">'.$key['tag_name'].'</a>';
+                            }
+                        ?>
                     </div>
                     <div id="imgfield">
                         <?php

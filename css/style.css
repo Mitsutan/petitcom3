@@ -44,6 +44,17 @@ div.section {
     border-radius: 5px;
 }
 
+a.taglink {
+    border: solid #3dafdc;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: skyblue;
+    color: white;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin: 2px;
+}
+
 form#form>div {
     margin-bottom: 1%;
 }

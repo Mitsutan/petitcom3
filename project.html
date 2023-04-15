@@ -13,9 +13,11 @@ $user = $db->getUser($result['user_id']);
 
 $rep = $db->getPrjReps($_GET['id']);
 
+$edit = false;
 if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
     $reped = $db->getUserPrjRep($_GET['id'],$_SESSION['login_id']);
     $userid = $_SESSION['login_id'];
+    if ($_SESSION['login_id'] == $result['user_id']) $edit = true;
 } else {
     $reped = [
                 "good" => "disabled",
@@ -52,6 +54,14 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                     <p>
                         投稿者：<?php echo "<a href='./userpage.html?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime'] ?>
                     </p>
+                    <?php
+                    if ($edit) {
+                        echo '<form action="./edit.html" method="post">';
+                        echo "<input type='hidden' name='projectid' value='".$result['project_id']."'>";
+                        echo '<input class="m-1" type="submit" value="編集/削除">';
+                        echo "</form>";
+                    }
+                    ?>
                     <div class="m-1" id="tagfield">
                         <?php
                             $data = $db->getTagsByProject($_GET['id']);

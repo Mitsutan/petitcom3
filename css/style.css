@@ -55,6 +55,15 @@ a.taglink {
     margin: 2px;
 }
 
+div#imglist>img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+a.taglink:hover {
+    color: #000046;
+}
+
 form#form>div {
     margin-bottom: 1%;
 }

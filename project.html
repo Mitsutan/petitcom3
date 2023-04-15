@@ -63,14 +63,14 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                     <div id="imgfield">
                         <?php
                             if (file_exists("./img/projectimg/".(int)$_GET['id']."/img0.png")) {
-                                echo '<img class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img0.png" alt="pic">';
+                                echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img0.png" alt="pic">';
                             }
                         ?>
                         <div id="imglist">
                             <?php
                                 for ($i = 0; $i < 4; $i++) {
                                     if (file_exists("./img/projectimg/".(int)$_GET['id']."/img".$i.".png")) {
-                                        echo '<img width="20%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic'.$i.'">';
+                                        echo '<img width="20%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic'.$i.'" onclick="document.getElementById(`img`).src = `./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png`">';
                                     }
                                 }
                             ?>

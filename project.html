@@ -10,6 +10,21 @@ $db->OutPutlog();
 
 $result = $db->getProject($_GET['id']);
 $user = $db->getUser($result['user_id']);
+
+$rep = $db->getPrjReps($_GET['id']);
+
+if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
+    $reped = $db->getUserPrjRep($_GET['id'],$_SESSION['login_id']);
+    $userid = $_SESSION['login_id'];
+} else {
+    $reped = [
+                "good" => "disabled",
+                "download" => "disabled",
+                "nice" => "disabled",
+                "great" => "disabled",
+                "effort" => "disabled"
+            ];
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -66,11 +81,11 @@ $user = $db->getUser($result['user_id']);
                     <h2>概要</h2>
                     <p><?php echo $result['project_description'] ?></p>
                     <div id="repfield">
-                        <button id="good" type="button" class="btn btn-outline-primary"><i class="fa-regular fa-thumbs-up"></i>いいね！<span class="ms-1">0</span></button>
-                        <button id="downloaded" type="button" class="btn btn-outline-success"><i class="fa-solid fa-file-arrow-down"></i>ダウンロードした！<span class="ms-1">0</span></button>
-                        <button id="nice" type="button" class="btn btn-outline-danger"><i class="fa-regular fa-heart"></i>ステキ！<span class="ms-1">0</span></button>
-                        <button id="great" type="button" class="btn btn-outline-warning"><i class="fa-regular fa-face-surprise"></i>すごい！<span class="ms-1">0</span></button>
-                        <button id="effort" type="button" class="btn btn-outline-secondary"><i class="fa-regular fa-face-smile-wink"></i>がんばって！<span class="ms-1">0</span></button>
+                        <button id="good" type="button" class="btn btn-outline-primary" onclick="sendhttpreq('good','<?php echo $_GET['id'] ?>','<?php echo $userid ?>')" <?php echo $reped['good'] ?>><i class="fa-regular fa-thumbs-up"></i>いいね！<span id="goodnum" class="ms-1"><?php echo $rep['good'] ?></span></button>
+                        <button id="downloaded" type="button" class="btn btn-outline-success" onclick="sendhttpreq('downloaded','<?php echo $_GET['id'] ?>','<?php echo $userid ?>')" <?php echo $reped['download'] ?>><i class="fa-solid fa-file-arrow-down"></i>ダウンロードした！<span id="downloadednum" class="ms-1"><?php echo $rep['download'] ?></span></button>
+                        <button id="nice" type="button" class="btn btn-outline-danger" onclick="sendhttpreq('nice','<?php echo $_GET['id'] ?>','<?php echo $userid ?>')" <?php echo $reped['nice'] ?>><i class="fa-regular fa-heart"></i>ステキ！<span id="nicenum" class="ms-1"><?php echo $rep['nice'] ?></span></button>
+                        <button id="great" type="button" class="btn btn-outline-warning" onclick="sendhttpreq('great','<?php echo $_GET['id'] ?>','<?php echo $userid ?>')" <?php echo $reped['great'] ?>><i class="fa-regular fa-face-surprise"></i>すごい！<span id="greatnum" class="ms-1"><?php echo $rep['great'] ?></span></button>
+                        <button id="effort" type="button" class="btn btn-outline-secondary" onclick="sendhttpreq('effort','<?php echo $_GET['id'] ?>','<?php echo $userid ?>')" <?php echo $reped['effort'] ?>><i class="fa-regular fa-face-smile-wink"></i>がんばって！<span id="effortnum" class="ms-1"><?php echo $rep['effort'] ?></span></button>
                     </div>
                 </div>
             </div>
@@ -80,6 +95,7 @@ $user = $db->getUser($result['user_id']);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>

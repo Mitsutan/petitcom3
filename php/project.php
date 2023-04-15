@@ -1,9 +1,6 @@
 <?php
     // セッション
     session_start();
-    if (!isset($_SESSION['login_id'])) {
-        header("Location: ./login.html");
-    }
 
     // データベースマネージャの読込
     require_once "./DBManager.php";

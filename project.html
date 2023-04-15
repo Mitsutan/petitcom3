@@ -50,7 +50,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
                     <p>
-                        投稿者：<?php echo $user['user_name']."・".$result['project_datetime'] ?>
+                        投稿者：<?php echo "<a href='./userpage.html?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime'] ?>
                     </p>
                     <div class="m-1" id="tagfield">
                         <?php

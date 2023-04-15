@@ -67,7 +67,7 @@ $db = new DBManager();
                             <input type="text" name="nnid">
                         </div>
                         <div>
-                            <label><input type="checkbox" name="agree" id="agree" onclick="document.getElementById('submit').disabled = !document.getElementById('agree').checked"><a href="./readme.html">READ ME</a>を読み、内容を理解しました</label>
+                            <label><input type="checkbox" name="agree" id="agree" onclick="document.getElementById('submit').disabled = !document.getElementById(this.id).checked"><a href="./readme.html">READ ME</a>を読み、内容を理解しました</label>
                         </div>
                         <div>
                             <input type="submit" value="登録" id="submit" disabled>

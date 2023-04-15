@@ -42,38 +42,40 @@ $db = new DBManager();
                     </form>
                     <ul>
                         <?php
-                            switch ($_GET['searchtype']) {
-                                case 0:
-                                    $res = $db->getProjectsByName($_GET['search']);
-                                    foreach ($res as $key) {
-                                        echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
-                                    }
-                                    break;
-                                case 1:
-                                    $res = $db->getUsersByName($_GET['search']);
-                                    foreach ($res as $key) {
-                                        $data = $db->getProjectsByUserid($key['user_id']);
-                                        foreach ($data as $key) {
+                            if (isset($_GET['searchtype'])) {
+                                switch ($_GET['searchtype']) {
+                                    case 0:
+                                        $res = $db->getProjectsByName($_GET['search']);
+                                        foreach ($res as $key) {
                                             echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
                                         }
-                                    }
-                                    break;
-                                case 2:
-                                    $res = $db->getUsersByNnid($_GET['search']);
-                                    foreach ($res as $key) {
-                                        $data = $db->getProjectsByUserid($key['user_id']);
-                                        foreach ($data as $key) {
-                                            echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                        break;
+                                    case 1:
+                                        $res = $db->getUsersByName($_GET['search']);
+                                        foreach ($res as $key) {
+                                            $data = $db->getProjectsByUserid($key['user_id']);
+                                            foreach ($data as $key) {
+                                                echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                            }
                                         }
-                                    }
-                                    break;
-                                case 3:
-                                    $res = $db->getProjectsByTag($_GET['search']);
-                                    foreach ($res as $key) {
-                                        $data = $db->getProject($key['project_id']);
-                                        echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$data['project_name'].'</a>'.'('.$data['project_datetime'].')</li>';
-                                    }
-                                    break;
+                                        break;
+                                    case 2:
+                                        $res = $db->getUsersByNnid($_GET['search']);
+                                        foreach ($res as $key) {
+                                            $data = $db->getProjectsByUserid($key['user_id']);
+                                            foreach ($data as $key) {
+                                                echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        $res = $db->getProjectsByTag($_GET['search']);
+                                        foreach ($res as $key) {
+                                            $data = $db->getProject($key['project_id']);
+                                            echo '<li><a href="./project.html?id='.$key['project_id'].'">'.$data['project_name'].'</a>'.'('.$data['project_datetime'].')</li>';
+                                        }
+                                        break;
+                                }
                             }
                         ?>
                     </ul>

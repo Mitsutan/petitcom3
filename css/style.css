@@ -9,6 +9,7 @@ body {
 nav {
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 nav#navigation>div>div>div>ul {
@@ -100,4 +101,11 @@ div#imglist {
     display: flex;
     justify-content: space-around;
     margin-bottom: 1%;
+}
+
+div#dangerzone {
+    border: red dashed;
+    border-radius: 4px;
+    background-color: #ff000016;
+    padding: 0.5rem;
 }

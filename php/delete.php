@@ -12,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     try {
         $db->deleteProjectById($_POST['id']);
+
+        array_map('unlink', glob("../img/projectimg/".$_POST['id']."/*.png"));
+        rmdir("../img/projectimg/".$_POST['id']);
     } catch (Exception $e) {
         echo $e->getMessage();
         exit;

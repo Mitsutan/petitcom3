@@ -1,0 +1,38 @@
+@font-face {
+    font-family: smilebasic;
+    src: url(../fonts/SMILEBASIC.ttf);
+}
+
+/*[data-trix-button-group="text-tools"],*/
+/*.trix-button--icon-bold,*/
+/* .trix-button--icon-italic, */
+/* .trix-button--icon-strike, */
+/*.trix-button--icon-link,*/
+
+/* [data-trix-button-group="block-tools"], */
+/* .trix-button--icon-heading-1, */
+/* .trix-button--icon-quote, */
+/* .trix-button--icon-code, */
+/* .trix-button--icon-bullet-list, */
+/* .trix-button--icon-number-list, */
+/* .trix-button--icon-decrease-nesting-level, */
+/* .trix-button--icon-increase-nesting-level, */
+[data-trix-button-group="file-tools"],
+.trix-button--icon-attach
+
+/*[data-trix-button-group="history-tools"],*/
+/*.trix-button--icon-undo,*/
+/*.trix-button--icon-redo*/
+    {
+    display: none !important;
+}
+
+trix-editor {
+    background-color: white;
+}
+
+.trix-content pre {
+    font-family: smilebasic;
+    background-color: #141414;
+    color: white;
+}

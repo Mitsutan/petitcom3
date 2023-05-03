@@ -45,6 +45,10 @@ div.section {
     border-radius: 5px;
 }
 
+h2 {
+    border-bottom: 2px solid yellowgreen;
+}
+
 a.taglink {
     border: solid #3dafdc;
     border-radius: 4px;

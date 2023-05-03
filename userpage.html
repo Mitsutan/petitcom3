@@ -23,6 +23,9 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.4/dist/trix.css">
+    <link rel="stylesheet" href="css/trix_overwrite.css">
+
     <title>プチコン３号作品倉庫</title>
 </head>
 
@@ -32,11 +35,11 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
         <div class="row p-1">
             <div class="col-8">
                 <div class="section">
-                    <h1><?php echo $result['user_name'] ?></h1>
+                    <h1><?php echo $result['user_name'] ?>のページ</h1>
                     <h2>概要</h2>
-                    <p>
+                    <div class="trix-content">
                         <?php echo htmlspecialchars_decode($result['user_description'], ENT_QUOTES) ?>
-                    </p>
+                    </div>
                     <h2>投稿記事</h2>
                     <div class="row row-cols-1 row-cols-md-3 g-1">
                         <?php

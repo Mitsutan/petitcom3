@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // print_r($_POST);
     $db->editProject($_POST['id'], $_POST['projectname'], $_POST['projectpk'], $_POST['projectdesc'], $arr, $_POST['tags'], $_POST['imgs']);
     echo "更新中...";
-    echo "<script>location.replace('../index.html');</script>";
+    echo "<script>location.replace('../project.html?id=".$_POST['id']."');</script>";
     exit;
 }
 ?>

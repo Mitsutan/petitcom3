@@ -75,8 +75,11 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                     </div>
                     <div id="imgfield">
                         <?php
-                            if (file_exists("./img/projectimg/".(int)$_GET['id']."/img0.png")) {
-                                echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img0.png" alt="pic">';
+                            for ($i=0; $i < 4; $i++) { 
+                                if (file_exists("./img/projectimg/".(int)$_GET['id']."/img".$i.".png")) {
+                                    echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic">';
+                                    break;
+                                }
                             }
                         ?>
                         <div id="imglist">

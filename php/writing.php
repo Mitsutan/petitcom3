@@ -34,7 +34,7 @@
     print_r($_FILES['projectimg']['tmp_name']);
     // ---
     try {
-        $db->submitProject($_SESSION['login_id'], $db->regexHtml($_POST['projectname']), $db->regexHtml($_POST['projectpk']), $db->regexHtml($_POST['projectdesc']), $arr);
+        $db->submitProject($_SESSION['login_id'], $db->regexHtml($_POST['projectname']), $db->regexHtml($_POST['projectpk']), htmlspecialchars($_POST['projectdesc'], ENT_QUOTES), $arr);
     } catch (Exception $e) {
         echo $e->getMessage();
     }

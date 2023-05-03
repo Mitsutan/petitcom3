@@ -35,4 +35,17 @@ trix-editor {
     font-family: smilebasic;
     background-color: #141414;
     color: white;
+    margin: 1%;
+    width: -webkit-fill-available;
+}
+
+.trix-content h1 {
+    border-bottom: 1px solid yellowgreen;
+}
+
+.trix-content div,
+.trix-content ol,
+.trix-content ul
+    {
+    margin-left: 1%;
 }

@@ -35,7 +35,7 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
                     <h1><?php echo $result['user_name'] ?></h1>
                     <h2>概要</h2>
                     <p>
-                        <?php echo $result['user_description'] ?>
+                        <?php echo htmlspecialchars_decode($result['user_description'], ENT_QUOTES) ?>
                     </p>
                     <h2>投稿記事</h2>
                     <div class="row row-cols-1 row-cols-md-3 g-1">

@@ -52,19 +52,19 @@ $db = new DBManager();
                     <form id="form" action="./php/signup.php" method="post">
                         <div>
                             <p class="required">メールアドレス</p>
-                            <input type="email" name="mail">
+                            <input type="email" name="mail" required>
                         </div>
                         <div>
                             <p class="required">パスワード</p>
-                            <input type="password" name="pass">
+                            <input type="password" name="pass" required>
                         </div>
                         <div>
                             <p class="required">ユーザ名</p>
-                            <input type="text" name="name">
+                            <input type="text" name="name" required>
                         </div>
                         <div>
                             <p class="required">NNID</p>
-                            <input type="text" name="nnid">
+                            <input type="text" name="nnid" required>
                         </div>
                         <div>
                             <label><input type="checkbox" name="agree" id="agree" onclick="document.getElementById('submit').disabled = !document.getElementById(this.id).checked"><a href="./readme.html">READ ME</a>を読み、内容を理解しました</label>

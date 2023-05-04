@@ -40,15 +40,15 @@ $result = $db->getUser($_SESSION['login_id']);
                     <form id="form" action="./php/mypage.php" method="post">
                         <div>
                             <p class="required">メールアドレス</p>
-                            <input type="email" name="mail" value="<?php echo $result['user_mail'] ?>">
+                            <input type="email" name="mail" value="<?php echo $result['user_mail'] ?>" required>
                         </div>
                         <div>
                             <p class="required">ユーザ名</p>
-                            <input type="text" name="name" value="<?php echo $result['user_name'] ?>">
+                            <input type="text" name="name" value="<?php echo $result['user_name'] ?>" required>
                         </div>
                         <div>
                             <p class="required">NNID</p>
-                            <input type="text" name="nnid" value="<?php echo $result['user_nnid'] ?>">
+                            <input type="text" name="nnid" value="<?php echo $result['user_nnid'] ?>" required>
                         </div>
                         <div>
                             <p>概要</p>

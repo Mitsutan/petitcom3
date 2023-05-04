@@ -47,7 +47,7 @@ $db = new DBManager();
                                     case 0:
                                         $res = $db->getProjectsByName($_GET['search']);
                                         foreach ($res as $key) {
-                                            echo '<li><a href="./project.php?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                            echo '<li><a href="./project?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
                                         }
                                         break;
                                     case 1:
@@ -55,7 +55,7 @@ $db = new DBManager();
                                         foreach ($res as $key) {
                                             $data = $db->getProjectsByUserid($key['user_id']);
                                             foreach ($data as $key) {
-                                                echo '<li><a href="./project.php?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                                echo '<li><a href="./project?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
                                             }
                                         }
                                         break;
@@ -64,7 +64,7 @@ $db = new DBManager();
                                         foreach ($res as $key) {
                                             $data = $db->getProjectsByUserid($key['user_id']);
                                             foreach ($data as $key) {
-                                                echo '<li><a href="./project.php?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
+                                                echo '<li><a href="./project?id='.$key['project_id'].'">'.$key['project_name'].'</a>'.'('.$key['project_datetime'].')</li>';
                                             }
                                         }
                                         break;
@@ -72,7 +72,7 @@ $db = new DBManager();
                                         $res = $db->getProjectsByTag($_GET['search']);
                                         foreach ($res as $key) {
                                             $data = $db->getProject($key['project_id']);
-                                            echo '<li><a href="./project.php?id='.$key['project_id'].'">'.$data['project_name'].'</a>'.'('.$data['project_datetime'].')</li>';
+                                            echo '<li><a href="./project?id='.$key['project_id'].'">'.$data['project_name'].'</a>'.'('.$data['project_datetime'].')</li>';
                                         }
                                         break;
                                 }

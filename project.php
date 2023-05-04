@@ -55,7 +55,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
                     <p>
-                        投稿者：<?php echo "<a href='./userpage.php?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime'] ?>
+                        投稿者：<?php echo "<a href='./userpage?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime'] ?>
                     </p>
                     <?php
                     if ($edit) {
@@ -69,7 +69,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                         <?php
                             $data = $db->getTagsByProject($_GET['id']);
                             foreach ($data as $key) {
-                                echo '<a class="taglink" href="./search.php?searchtype=3&search='.$key['tag_name'].'">'.htmlentities($key['tag_name'],ENT_QUOTES).'</a>';
+                                echo '<a class="taglink" href="./search?searchtype=3&search='.$key['tag_name'].'">'.htmlentities($key['tag_name'],ENT_QUOTES).'</a>';
                             }
                         ?>
                     </div>

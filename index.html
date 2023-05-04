@@ -24,6 +24,14 @@ $db->OutPutlog();
 
 <body>
     <?php require './php/nav.php'; ?>
+    <?php
+    if (isset($_SESSION['login_id'])) {
+        $notice = $db->getNotice($_SESSION['login_id']);
+        if (!empty($notice)) {
+            require_once './php/notice.php';
+        }
+    }
+    ?>
     <div class="container-fluid">
         <div class="row p-1">
             <div class="col-8">

@@ -34,6 +34,11 @@ nav#navigation>div>div>div>ul>li>a:hover {
     color: white;
 }
 
+div.notice {
+    border: 5px solid red;
+    background-color: #ff000026;
+}
+
 div.section {
     /* margin: 1vw; */
     margin-top: 1vw;

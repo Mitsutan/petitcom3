@@ -1,6 +1,9 @@
 <?php
 // セッション
 session_start();
+if (isset($_SESSION['login_id'])) {
+    header("Location: ./index.php");
+}
 
 // データベースマネージャの読込
 require_once "./php/DBManager.php";
@@ -25,24 +28,25 @@ $db = new DBManager();
     <?php require './php/nav.php'; ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-8">
+            <div class="col-12">
                 <div class="section">
-                    <h1>ようこそ！</h1>
-                    <p>ユーザ登録が完了しました。早速あなたの作品を投稿してみましょう！</p>
+                    <h1>ログイン</h1>
+                    <a href="signup.php">新規ユーザ登録はこちら</a>
+                    <form id="form" action="./php/login.php" method="post">
+                        <div>
+                            <p>メールアドレス</p>
+                            <input type="email" name="mail">
+                        </div>
+                        <div>
+                            <p>パスワード</p>
+                            <input type="password" name="pass">
+                        </div>
+                        <div>
+                            <input type="submit" value="ログイン">
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="section">
-                    <h1>新着</h1>
-                </div>
-                <div class="section">
-                    <h1>人気の作品</h1>
-                </div>
-                <div class="section">
-                    <h1>ランダム</h1>
-                </div>
-            </div>
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

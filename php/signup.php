@@ -29,7 +29,7 @@
             // 新規登録完了
             echo '登録中...';
             $_SESSION['login_id'] = $result['user_id'];
-            echo "<script>location.replace('../welcome.html');</script>";
+            echo "<script>location.replace('../welcome.php');</script>";
             exit;
     }
 ?>

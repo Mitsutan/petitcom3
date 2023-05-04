@@ -45,7 +45,7 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
                         <?php
                             foreach ($prjlist as $key) {
                                 echo "<div class='col'>";
-                                echo "<a class='cardtext' href='./project.html?id=".$key["project_id"]."'>";
+                                echo "<a class='cardtext' href='./project.php?id=".$key["project_id"]."'>";
                                 echo '<div class="card">';
                                 if (file_exists("./img/projectimg/".(int)$key['project_id']."/img0.png")) {
                                     echo '<img src="./img/projectimg/'.(int)$key['project_id'].'/img0.png" class="card-img-top" alt="image">';

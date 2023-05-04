@@ -8,7 +8,7 @@ $db = new DBManager();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $data = $db->getProject($_POST['projectid']);
-    if ($data['user_id'] != $_SESSION['login_id'] && $_SESSION['login_auth'] != 10) header("Location: ./index.html");
+    if ($data['user_id'] != $_SESSION['login_id'] && $_SESSION['login_auth'] != 10) header("Location: ./index.php");
 }
 ?>
 <!DOCTYPE html>

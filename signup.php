@@ -2,7 +2,7 @@
 // セッション
 session_start();
 if (isset($_SESSION['login_id'])) {
-    header("Location: ./index.html");
+    header("Location: ./index.php");
 }
 
 // データベースマネージャの読込
@@ -67,7 +67,7 @@ $db = new DBManager();
                             <input type="text" name="nnid" required>
                         </div>
                         <div>
-                            <label><input type="checkbox" name="agree" id="agree" onclick="document.getElementById('submit').disabled = !document.getElementById(this.id).checked"><a href="./readme.html">READ ME</a>を読み、内容を理解しました</label>
+                            <label><input type="checkbox" name="agree" id="agree" onclick="document.getElementById('submit').disabled = !document.getElementById(this.id).checked"><a href="./readme.php">READ ME</a>を読み、内容を理解しました</label>
                         </div>
                         <div>
                             <input type="submit" value="登録" id="submit" disabled>

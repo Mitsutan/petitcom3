@@ -32,12 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $data = $db->getProject($_POST['id']);
-    if ($data['user_id'] != $_SESSION['login_id']) header("Location: ../index.html");
+    if ($data['user_id'] != $_SESSION['login_id']) header("Location: ../index.php");
 
     // print_r($_POST);
     $db->editProject($_POST['id'], $_POST['projectname'], $_POST['projectpk'], $_POST['projectdesc'], $arr, $_POST['tags'], $_POST['imgs']);
     echo "更新中...";
-    echo "<script>location.replace('../project.html?id=".$_POST['id']."');</script>";
+    echo "<script>location.replace('../project.php?id=".$_POST['id']."');</script>";
     exit;
 }
 ?>

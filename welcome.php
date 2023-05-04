@@ -5,7 +5,6 @@ session_start();
 // データベースマネージャの読込
 require_once "./php/DBManager.php";
 $db = new DBManager();
-$tags = $db->getTags();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -26,18 +25,14 @@ $tags = $db->getTags();
     <?php require './php/nav.php'; ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="section">
-                    <h1>タグ一覧</h1>
-                    <ul>
-                        <?php
-                            foreach ($tags as $key) {
-                                echo '<li><a href="./search.html?searchtype=3&search='.$key['tag_name'].'">'.$key['tag_name'].'</a>'.'('.$key['tagnum'].')</li>';
-                            }
-                        ?>
-                    </ul>
+                    <h1>ようこそ！</h1>
+                    <p>ユーザ登録が完了しました。早速あなたの作品を投稿してみましょう！</p>
                 </div>
             </div>
+            <?php require './php/prjlist.php'; ?>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

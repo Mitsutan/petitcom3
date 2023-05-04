@@ -13,7 +13,7 @@
             $_SESSION['login_id'] = $result['user_id'];
             $_SESSION['login_auth'] = $result['user_auth'];
             // $_SESSION['login_nnid'] = $result['user_nnid'];
-            echo "<script>location.replace('../index.html');</script>";
+            echo "<script>location.replace('../index.php');</script>";
         } catch(PDOException $e) {
             if($e->getCode() == '2002') {
                 echo '失敗しました。<br />しばらく時間をおいて再度お試しください。';

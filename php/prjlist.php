@@ -8,7 +8,7 @@
                 echo '<li>データがありません</li>';
             } else {
                 foreach ($dates as $key) {
-                    echo '<li><a href="./project.html?id=' . $key['project_id'] . '">' . $key['project_name'] . '</a></li>';
+                    echo '<li><a href="./project.php?id=' . $key['project_id'] . '">' . $key['project_name'] . '</a></li>';
                 }
             }
             echo '</ul>';
@@ -27,7 +27,7 @@
                 echo '<li>データがありません</li>';
             } else {
                 foreach ($dates as $key) {
-                    echo '<li><a href="./project.html?id=' . $key['project_id'] . '">' . $key['project_name'] . '</a></li>';
+                    echo '<li><a href="./project.php?id=' . $key['project_id'] . '">' . $key['project_name'] . '</a></li>';
                 }
             }
             ?>

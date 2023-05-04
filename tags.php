@@ -1,13 +1,11 @@
 <?php
 // セッション
 session_start();
-if (isset($_SESSION['login_id'])) {
-    header("Location: ./index.html");
-}
 
 // データベースマネージャの読込
 require_once "./php/DBManager.php";
 $db = new DBManager();
+$tags = $db->getTags();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,21 +28,14 @@ $db = new DBManager();
         <div class="row p-1">
             <div class="col-12">
                 <div class="section">
-                    <h1>ログイン</h1>
-                    <a href="signup.html">新規ユーザ登録はこちら</a>
-                    <form id="form" action="./php/login.php" method="post">
-                        <div>
-                            <p>メールアドレス</p>
-                            <input type="email" name="mail">
-                        </div>
-                        <div>
-                            <p>パスワード</p>
-                            <input type="password" name="pass">
-                        </div>
-                        <div>
-                            <input type="submit" value="ログイン">
-                        </div>
-                    </form>
+                    <h1>タグ一覧</h1>
+                    <ul>
+                        <?php
+                            foreach ($tags as $key) {
+                                echo '<li><a href="./search.php?searchtype=3&search='.$key['tag_name'].'">'.$key['tag_name'].'</a>'.'('.$key['tagnum'].')</li>';
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>

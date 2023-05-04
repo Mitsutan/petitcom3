@@ -8,7 +8,7 @@ $db = new DBManager();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $data = $db->getProject($_POST['id']);
-    if ($data['user_id'] != $_SESSION['login_id']) header("Location: ../index.html");
+    if ($data['user_id'] != $_SESSION['login_id']) header("Location: ../index.php");
 
     try {
         $db->deleteProjectById($_POST['id']);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     echo '削除中...';
-    echo "<script>location.replace('../index.html');</script>";
+    echo "<script>location.replace('../index.php');</script>";
     exit;
     
 }

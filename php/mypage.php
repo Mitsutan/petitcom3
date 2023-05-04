@@ -14,7 +14,7 @@
         }
 
         echo '登録中...';
-        echo "<script>location.replace('../mypage.html');</script>";
+        echo "<script>location.replace('../mypage.php');</script>";
         exit;
         
     }

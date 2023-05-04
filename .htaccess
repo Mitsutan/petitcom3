@@ -1,12 +1,11 @@
-# これはサーバの設定ファイルです
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html 
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
 
-# phpのエラーを画面表示（本番では消す）
-php_flag display_errors On
-php_value error_reporting 6135
-# ---
-
-# .htmlを.phpとして認識させる
-<FilesMatch "\.html$">
-  AddType application/x-httpd-php .html
-</FilesMatch>
-# ---
+RewriteCond %{THE_REQUEST} \.(php|html)\ HTTP
+RewriteRule ^(.*)\.(php|html)$ https://$1 [R=307,L]

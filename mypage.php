@@ -2,7 +2,7 @@
 // セッション
 session_start();
 if ($_SESSION['login_auth'] == 0) {
-    header("Location: ./index.html");
+    header("Location: ./index.php");
 }
 
 // データベースマネージャの読込

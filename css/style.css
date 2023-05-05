@@ -12,10 +12,6 @@ nav {
     z-index: 1;
 }
 
-nav>div {
-    height: 44px;
-}
-
 nav#navigation>div>div>div>ul {
     display: flex;
     justify-content: flex-end;
@@ -39,8 +35,7 @@ nav#navigation>div>div>div>ul>li>a:hover {
 }
 
 img#logo {
-    height: 20%;
-    margin: 2px;
+    height: 40px;
 }
 
 div.notice {

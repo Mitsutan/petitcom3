@@ -2,7 +2,7 @@
     <div class="container-fluid m-0 bg-dark bg-gradient">
         <div class="row">
             <div class="col">
-                <a href="index.php"><img src="" alt="プチコン３号作品倉庫（ロゴ画像未定）"></a>
+                <a href="index.php"><img src="./img/logo.png" alt="プチコン３号作品倉庫（ロゴ画像未定）" id="logo"></a>
             </div>
             <div class="col">
                 <ul>

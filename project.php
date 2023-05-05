@@ -8,10 +8,18 @@ $db = new DBManager();
 
 $db->OutPutlog();
 
-$result = $db->getProject($_GET['id']);
-$user = $db->getUser($result['user_id']);
+try {
+    $result = $db->getProject($_GET['id']);
+    $user = $db->getUser($result['user_id']);
 
-$rep = $db->getPrjReps($_GET['id']);
+    $rep = $db->getPrjReps($_GET['id']);
+} catch (Throwable $th) {
+    // echo "[".$th->getCode()."]".$th->getMessage();
+    echo "エラーが発生しました。";
+    exit;
+}
+
+
 
 $edit = false;
 if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
@@ -20,11 +28,11 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
     if ($_SESSION['login_id'] == $result['user_id'] || $_SESSION['login_auth'] == 10) $edit = true;
 } else {
     $reped = [
-                "good" => "disabled",
-                "download" => "disabled",
-                "nice" => "disabled",
-                "great" => "disabled",
-                "effort" => "disabled"
+        "good" => "disabled",
+        "download" => "disabled",
+        "nice" => "disabled",
+        "great" => "disabled",
+        "effort" => "disabled"
             ];
 }
 ?>

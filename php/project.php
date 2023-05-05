@@ -5,6 +5,7 @@
     // データベースマネージャの読込
     require_once "./DBManager.php";
     $db = new DBManager();
+    $db->OutPutlog();
 
     $request = json_decode(file_get_contents("php://input"), true);
 

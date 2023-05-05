@@ -5,7 +5,7 @@
     // データベースマネージャの読込
     require_once "./DBManager.php";
     $db = new DBManager();
-
+    $db->OutPutlog();
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
             $result = $db->loginUser($_POST["mail"],$_POST["pass"]);

@@ -5,6 +5,7 @@
     // データベースマネージャの読込
     require_once "./DBManager.php";
     $db = new DBManager();
+    $db->OutPutlog();
 
     $filesize = 0;
     foreach ($_FILES['projectimg']['size'] as $key => $value) {

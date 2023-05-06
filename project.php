@@ -103,7 +103,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
                     <h2>公開キー</h2>
                     <p class="text-uppercase">【<?php echo $result['project_pk'] ?>】</p>
                     <h2>概要</h2>
-                    <div class="trix-content"><?php echo htmlspecialchars_decode($result['project_description'], ENT_QUOTES) ?></div>
+                    <div class="trix-content"><?php echo $result['project_description'] ?></div>
                     <div id="repfield">
                         <button id="good" type="button" class="btn btn-outline-primary" onclick="sendhttpreq('good',`<?php echo $_GET['id'] ?>`,'<?php echo $userid ?>')" <?php echo $reped['good'] ?>><i class="fa-regular fa-thumbs-up"></i>いいね！<span id="goodnum" class="ms-1"><?php echo $rep['good'] ?></span></button>
                         <button id="downloaded" type="button" class="btn btn-outline-success" onclick="sendhttpreq('downloaded',`<?php echo $_GET['id'] ?>`,'<?php echo $userid ?>')" <?php echo $reped['download'] ?>><i class="fa-solid fa-file-arrow-down"></i>ダウンロードした！<span id="downloadednum" class="ms-1"><?php echo $rep['download'] ?></span></button>

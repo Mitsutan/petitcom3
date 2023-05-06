@@ -33,7 +33,7 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
     <?php require './php/nav.php'; ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-8">
                 <div class="section">
                     <h1><?php echo $result['user_name'] ?>のページ</h1>
                     <h2>概要</h2>

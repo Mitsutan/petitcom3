@@ -20,6 +20,36 @@ nav#navigation>div>div>div>ul {
     color: white;
 }
 
+nav#navigation>div>div>div>details {
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    width: fit-content;
+    right: 0;
+}
+
+nav#navigation>div>div>div>details>ul {
+    /* position: absolute; */
+    right: 0;
+    padding: 2%;
+    background-color: black;
+    color: white;
+    list-style: none;
+
+}
+
+nav#navigation>div>div>div>details>ul>li {
+    margin: 1%;
+}
+
+nav#navigation>div>div>div>details>summary {
+    display: block;
+}
+
 nav#navigation>div>div>div>ul>li {
     margin: 2%;
 }
@@ -29,7 +59,17 @@ nav#navigation>div>div>div>ul>li>a {
     color: white;
 }
 
+nav#navigation>div>div>div>details>ul>li>a {
+    text-decoration: none;
+    color: white;
+}
+
 nav#navigation>div>div>div>ul>li>a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+nav#navigation>div>div>div>details>ul>li>a:hover {
     text-decoration: underline;
     color: white;
 }

@@ -59,7 +59,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
     <?php require './php/nav.php'; ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-8">
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
                     <p>

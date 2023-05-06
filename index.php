@@ -34,7 +34,7 @@ $db->OutPutlog();
     ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-8">
                 <div class="section">
                     <h1>トップページ</h1>
                     <h2>ようこそプチコン３号作品倉庫へ！</h2>

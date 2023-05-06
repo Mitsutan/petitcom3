@@ -25,7 +25,7 @@ $db = new DBManager();
     <?php require './php/nav.php'; ?>
     <div class="container-fluid">
         <div class="row p-1">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-8">
                 <div class="section">
                     <h1>ようこそ！</h1>
                     <p>ユーザ登録が完了しました。早速あなたの作品を投稿してみましょう！</p>

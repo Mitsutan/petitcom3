@@ -50,7 +50,7 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
                                 if (file_exists("./img/projectimg/".(int)$key['project_id']."/img0.png")) {
                                     echo '<img src="./img/projectimg/'.(int)$key['project_id'].'/img0.png" class="card-img-top" alt="image">';
                                 } else {
-                                echo '<img src="" class="card-img-top" alt="No IMG">';
+                                echo '<img src="./img/noimg.png" class="card-img-top" alt="No IMG">';
                                 }
                                 echo '<div class="card-body">';
                                 echo '<h5 class="card-title">'.$key['project_name'].'</h5>';

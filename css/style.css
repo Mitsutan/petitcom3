@@ -50,6 +50,19 @@ nav#navigation>div>div>div>details>summary {
     display: block;
 }
 
+summary::-webkit-details-marker {
+    /* Safariで表示されるデフォルトの三角形アイコンを消します */
+    display: none;
+}
+
+nav#navigation>div>div>div>details>summary::before {
+    content: "＝";
+}
+
+nav#navigation>div>div>div>details[open]>summary::before {
+    content: "✕";
+}
+
 nav#navigation>div>div>div>ul>li {
     margin: 2%;
 }

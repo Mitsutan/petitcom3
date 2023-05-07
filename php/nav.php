@@ -24,7 +24,7 @@
             </div>
             <div class="col d-block d-md-none my-1">
                 <details>
-                    <summary>=</summary>
+                    <summary></summary>
                     <ul>
                     <?php
                     if (isset($_SESSION['login_id'])) {

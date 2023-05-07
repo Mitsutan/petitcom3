@@ -77,7 +77,7 @@ $db->OutPutlog();
                             <input type="text" name="projecttags">
                             <div>
                                 「 」(半角スペース)区切りで複数入力可<br />
-                                表記ゆれを減らすためにタグ一覧のページをご確認ください。
+                                表記ゆれを減らすために<a href="./tags.php" target="_blank">タグ一覧</a>をご確認ください。
                             </div>
                         </div>
                         <div>

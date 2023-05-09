@@ -21,7 +21,7 @@
     }
 
     // タグ分割---
-    $str = $_POST['projecttags'];
+    $str = mb_convert_kana($_POST['projecttags'], 's', 'UTF-8');
     $delimiter = " ";
     $token = strtok($str, $delimiter);
     $arr = array();

@@ -24,11 +24,12 @@ nav#navigation>div>div>div>details {
     position: absolute;
     border: 1px solid white;
     border-radius: 5px;
+    background-color: gray;
     color: white;
     text-align: center;
     padding: 1%;
     margin: 1%;
-    width: fit-content;
+    /* width: 50%; */
     right: 0;
 }
 
@@ -112,6 +113,7 @@ h2 {
 }
 
 a.taglink {
+    display: inline-block;
     border: solid #3dafdc;
     border-radius: 4px;
     text-decoration: none;

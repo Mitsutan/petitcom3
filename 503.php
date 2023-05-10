@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>503 Error</title>
+    <title>プチコン３号作品倉庫 - 503 Service Unavailable</title>
 </head>
 <body>
     <p>

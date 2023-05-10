@@ -27,7 +27,7 @@ $db->OutPutlog();
     <link rel="stylesheet" href="css/trix_overwrite.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.4/dist/trix.umd.min.js"></script>
 
-    <title>プチコン３号作品倉庫</title>
+    <title>プチコン３号作品倉庫 - 新規記事投稿</title>
 </head>
 
 <body>

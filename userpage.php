@@ -9,6 +9,11 @@ $db = new DBManager();
 $db->OutPutlog();
 
 $result = $db->getUser($_GET['id']);
+if (!$result) {
+    http_response_code(404);
+    include("./404.php");
+    exit;
+}
 $prjlist = $db->getProjectsByUserid($_GET['id']);
 ?>
 <!DOCTYPE html>
@@ -26,7 +31,7 @@ $prjlist = $db->getProjectsByUserid($_GET['id']);
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.4/dist/trix.css">
     <link rel="stylesheet" href="css/trix_overwrite.css">
 
-    <title>プチコン３号作品倉庫</title>
+    <title>プチコン３号作品倉庫 - <?php echo $result['user_name'] ?>のページ</title>
 </head>
 
 <body>

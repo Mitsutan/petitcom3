@@ -10,6 +10,11 @@ $db->OutPutlog();
 
 try {
     $result = $db->getProject($_GET['id']);
+    if (!$result) {
+        http_response_code(404);
+        include("./404.php");
+        exit;
+    }
     $user = $db->getUser($result['user_id']);
 
     $rep = $db->getPrjReps($_GET['id']);

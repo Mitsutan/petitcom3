@@ -40,6 +40,8 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
         "effort" => "disabled"
             ];
 }
+
+$rtn = $db->cntView($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -68,7 +70,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
                     <p>
-                        投稿者：<?php echo "<a href='./userpage?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime'] ?>
+                        投稿者：<?php echo "<a href='./userpage?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime']."・".$rtn."閲覧" ?>
                     </p>
                     <?php
                     if ($edit) {

@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         </div>
                         <div>
                             <p>概要</p>
-                            <input id="desc" type="hidden" name="projectdesc" value="<?php echo $data['project_description'] ?>">
+                            <input id="desc" type="hidden" name="projectdesc" value="<?php echo htmlspecialchars($data['project_description'], ENT_QUOTES) ?>">
                             <trix-editor input="desc" class="trix-content"></trix-editor>
                         </div>
                         <div>

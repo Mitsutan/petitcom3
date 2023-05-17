@@ -1,7 +1,7 @@
 <?php
 // セッション
 session_start();
-if ($_SESSION['login_auth'] == 0) {
+if ($_SESSION['login_auth'] == 1) {
     header("Location: ./index.php");
 }
 
@@ -52,9 +52,8 @@ $result = $db->getUser($_SESSION['login_id']);
                         </div>
                         <div>
                             <p>概要</p>
-                            <input id="desc" type="hidden" name="description" value="<?php echo $result['user_description'] ?>">
+                            <input id="desc" type="hidden" name="description" value="<?php echo htmlspecialchars($result['user_description'], ENT_QUOTES) ?>">
                             <trix-editor input="desc" class="trix-content" placeholder="自己紹介などを書いてみましょう"></trix-editor>
-                            <!-- <textarea name="description" cols="35" rows="10" placeholder="自己紹介などを書いてみましょう"><?php echo $result['user_description'] ?></textarea> -->
                         </div>
                         <div>
                             <input type="submit" value="変更">

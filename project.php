@@ -27,10 +27,10 @@ try {
 
 
 $edit = false;
-if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 0) {
+if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
     $reped = $db->getUserPrjRep($_GET['id'],$_SESSION['login_id']);
     $userid = $_SESSION['login_id'];
-    if ($_SESSION['login_id'] == $result['user_id'] || $_SESSION['login_auth'] == 10) $edit = true;
+    if (($_SESSION['login_id'] == $result['user_id'] && $_SESSION['login_auth'] != 0) || $_SESSION['login_auth'] == 10) $edit = true;
 } else {
     $reped = [
         "good" => "disabled",

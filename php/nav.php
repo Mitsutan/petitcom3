@@ -9,8 +9,10 @@
                     <?php
                     if (isset($_SESSION['login_id'])) {
                         echo '<li><a href="./php/logout.php">ログアウト</a></li>';
-                        echo '<li><a href="./writing.php">新規記事投稿</a></li>';
-                        if ($_SESSION['login_auth'] >= 1) {
+                        if ($_SESSION['login_auth'] != 0) {
+                            echo '<li><a href="./writing.php">新規記事投稿</a></li>';
+                        }
+                        if ($_SESSION['login_auth'] >= 2) {
                             echo '<li><a href="./mypage.php">プロフィール</a></li>';
                         }
                     } else {
@@ -29,8 +31,10 @@
                     <?php
                     if (isset($_SESSION['login_id'])) {
                         echo '<li><a href="./php/logout.php">ログアウト</a></li>';
-                        echo '<li><a href="./writing.php">新規記事投稿</a></li>';
-                        if ($_SESSION['login_auth'] >= 1) {
+                        if ($_SESSION['login_auth'] != 0) {
+                            echo '<li><a href="./writing.php">新規記事投稿</a></li>';
+                        }
+                        if ($_SESSION['login_auth'] >= 2) {
                             echo '<li><a href="./mypage.php">プロフィール</a></li>';
                         }
                     } else {

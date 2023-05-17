@@ -16,7 +16,14 @@
             echo '<div class="section">';
             echo '<h1>人気の作品</h1>';
             echo '<ul>';
-            echo '<li>未実装(coming soon)</li>';
+            $dates = $db->getProjectsPopular(5);
+            if (empty($dates)) {
+                echo '<li>データがありません</li>';
+            } else {
+                foreach ($dates as $key) {
+                    echo '<li><a href="./project?id=' . $key['project_id'] . '">' . $key['project_name'] . '</a></li>';
+                }
+            }
             echo '</ul>';
             echo '</div>';
             echo '<div class="section">';

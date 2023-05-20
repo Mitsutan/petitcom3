@@ -29,8 +29,8 @@ $db = new DBManager();
                 <div class="section">
                     <h1>問い合わせ</h1>
                     <ul>
-                        <li>contact@mitsutan.dev</li>
-                        <li><a href="https://twitter.com/kndu_ptcm">@kndu_ptcm</a></li>
+                        <li>contact@petitcom.mitsutan.dev - たまにみる</li>
+                        <li><a href="https://twitter.com/kndu_ptcm">Twitter @kndu_ptcm - 緊急ならこっち</a></li>
                     </ul>
                 </div>
             </div>

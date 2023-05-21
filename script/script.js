@@ -16,11 +16,12 @@ function sendhttpreq(htmlid, prjid, loginid) {
         try {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
+                    // console.log(xhr.response);
                     const result = JSON.parse(xhr.response);
                     document.getElementById(htmlid).disabled = true;
                     const num = document.getElementById(htmlid + "num");
                     num.innerText = Number(num.innerText) + 1;
-                    console.log(result);
+                    // console.log(result);
                 } else {
                     alert("failed");
                 }

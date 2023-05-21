@@ -45,11 +45,11 @@ $db->OutPutlog();
                         </div>
                         <div>
                             <p class="required">作品名</p>
-                            <input type="text" name="projectname" required>
+                            <input type="text" name="projectname" autocomplete="off" required>
                         </div>
                         <div>
                             <p class="required">公開キー</p>
-                            <input type="text" name="projectpk" placeholder="A12BC3D" required>
+                            <input type="text" name="projectpk" placeholder="A12BC3D" autocomplete="off" required>
                         </div>
                         <div>
                             <p>概要</p>
@@ -74,7 +74,7 @@ $db->OutPutlog();
                         </div>
                         <div>
                             <p>タグ</p>
-                            <input type="text" name="projecttags">
+                            <input type="text" name="projecttags" autocomplete="off">
                             <div>
                                 「 」(半角スペース)区切りで複数入力可<br />
                                 表記ゆれを減らすために<a href="./tags.php" target="_blank">タグ一覧</a>をご確認ください。

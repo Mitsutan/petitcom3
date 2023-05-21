@@ -58,12 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         </div>
                         <div>
                             <p class="required">作品名</p>
-                            <input type="text" name="projectname" value="<?php echo $data['project_name'] ?>" required>
+                            <input type="text" name="projectname" value="<?php echo $data['project_name'] ?>" autocomplete="off" required>
                         </div>
                         <div>
                             <p class="required">公開キー</p>
                             <input type="text" name="projectpk" placeholder="A12BC3D"
-                                value="<?php echo $data['project_pk'] ?>" required>
+                                value="<?php echo $data['project_pk'] ?>" autocomplete="off" required>
                         </div>
                         <div>
                             <p>概要</p>
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             ?>
                             </div>
                             追加するタグを入力してください。<br />
-                            <input type="text" name="projecttags">
+                            <input type="text" name="projecttags" autocomplete="off">
                             <div>
                                 「 」(半角スペース)区切りで複数入力可<br />
                                 表記ゆれを減らすために<a href="./tags.php" target="_blank">タグ一覧</a>をご確認ください。

@@ -49,7 +49,7 @@ $db->OutPutlog();
                         <li><a href="http://petitverse.hosiken.jp/community/petitcom/">プチコンシリーズユーザの交流場所、「Petitverse」</a></li>
                     </ul>
                     <p>
-                        現在<span class="fs-2 fw-bold"><?php echo $db->getCntProject() ?></span>作品！
+                        現在<span class="fs-2 fw-bold" id="prjCnt">0</span>作品！
                     </p>
                     <h2>投稿しよう</h2>
                     <p>
@@ -66,6 +66,26 @@ $db->OutPutlog();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script>
+        const prjCnt = document.getElementById("prjCnt");
+        const prjSum = <?php echo $db->getCntProject() ?>;// 作品総数
+        const startTime = performance.now();// カウント開始時間
+
+        // prjSum = 50000;
+
+        requestAnimationFrame(count);
+
+        function count() {
+            prjCnt.innerHTML = ((performance.now() - startTime)/600 * prjSum).toFixed(0);// ネットで調べた計算式、意味は分からない
+            // prjCnt.innerHTML = (prjCnt.innerHTML).replace(/\B(?=(\d{3})+$)/g, ',');
+            if (prjCnt.innerHTML >= prjSum) {
+                prjCnt.innerHTML = prjSum;
+            } else {
+                requestAnimationFrame(count);
+            }
+            
+        }
+    </script>
 </body>
 
 </html>

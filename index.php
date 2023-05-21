@@ -48,6 +48,9 @@ $db->OutPutlog();
                         <li><a href="http://smilebasic.com/">プチコン３号公式サイト</a></li>
                         <li><a href="http://petitverse.hosiken.jp/community/petitcom/">プチコンシリーズユーザの交流場所、「Petitverse」</a></li>
                     </ul>
+                    <p>
+                        現在<span class="fs-2 fw-bold"><?php echo $db->getCntProject() ?></span>作品！
+                    </p>
                     <h2>投稿しよう</h2>
                     <p>
                         このサイトは３号で公開されているプロジェクトを集めて一覧から検索できるようにすることが目的です。<br />

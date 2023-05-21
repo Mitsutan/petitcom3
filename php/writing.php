@@ -32,7 +32,7 @@
     }
 
     // print_r($arr);S
-    print_r($_FILES['projectimg']['tmp_name']);
+    // print_r($_FILES['projectimg']['tmp_name']);
     // ---
     try {
         $db->submitProject($_SESSION['login_id'], $db->regexHtml($_POST['projectname']), $db->regexHtml($_POST['projectpk']), $_POST['projectdesc'], $arr);

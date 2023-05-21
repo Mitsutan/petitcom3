@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プチコン３号作品倉庫 - 503 Service Unavailable</title>
 </head>
-<body>
+<body style="text-align: center;">
+    <h1>システムメンテナンス中</h1>
     <p>
-        試験運用は終了しました。<br />
-        多少の修正を加えた後、本公開されます。しばらくお待ちください。
-        時期は未定です。
+        現在システム停止中です。再開までしばらくお待ちください。<br />
+        復旧時期は未定です。ご不便おかけいたします。
     </p>
+    <h2>問い合わせ</h2>
     <p>
-        問い合わせ<br />
         twitter:@ptcm_kondou<br />
-        petitverse:http://petitverse.hosiken.jp/community/petitcom/topic/?read=1828
+        mail:contact@petitcom.mitsutan.dev
     </p>
 </body>
 </html>

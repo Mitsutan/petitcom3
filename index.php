@@ -15,6 +15,8 @@ $db->OutPutlog();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./img/favicon.ico">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -76,7 +78,7 @@ $db->OutPutlog();
         requestAnimationFrame(count);
 
         function count() {
-            prjCnt.innerHTML = ((performance.now() - startTime)/600 * prjSum).toFixed(0);// ネットで調べた計算式、意味は分からない
+            prjCnt.innerHTML = ( (Math.sqrt(performance.now() - startTime)/4) /15 * prjSum).toFixed(0);// ( √( 現在時間-開始時間 ) /4 ) /15 * 作品総数
             // prjCnt.innerHTML = (prjCnt.innerHTML).replace(/\B(?=(\d{3})+$)/g, ',');
             if (prjCnt.innerHTML >= prjSum) {
                 prjCnt.innerHTML = prjSum;

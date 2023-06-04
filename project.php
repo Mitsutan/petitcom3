@@ -28,7 +28,7 @@ try {
 
 $edit = false;
 if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
-    $reped = $db->getUserPrjRep($_GET['id'],$_SESSION['login_id']);
+    $reped = $db->getUserPrjRep($_GET['id'], $_SESSION['login_id']);
     $userid = $_SESSION['login_id'];
     if (($_SESSION['login_id'] == $result['user_id'] && $_SESSION['login_auth'] != 0) || $_SESSION['login_auth'] == 10) $edit = true;
 } else {
@@ -38,7 +38,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
         "nice" => "disabled",
         "great" => "disabled",
         "effort" => "disabled"
-            ];
+    ];
 }
 
 $rtn = $db->cntView($_GET['id']);
@@ -51,8 +51,24 @@ $rtn = $db->cntView($_GET['id']);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- OGP -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<?php echo $result['project_name'] ?>" />
+    <meta property="og:description" content="<?php echo strip_tags($result['project_description']) ?>" />
+    <meta property="og:url" content="<?php echo (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
+    <meta property="og:site_name" content="プチコン３号作品倉庫" />
+    <meta property="og:image" content="<?php
+                                        if (file_exists("./img/projectimg/" . (int)$result['project_id'] . "/img0.png")) {
+                                            echo (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . '/img/projectimg/' . (int)$result['project_id'] . '/img0.png';
+                                        } else {
+                                            echo (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . '/img/noimg.png';
+                                        }
+                                        ?>" />
+    <!-- Twitterカードの設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- <meta name="twitter:site" content="(9)Twitterアカウント名" /> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -70,40 +86,40 @@ $rtn = $db->cntView($_GET['id']);
                 <div class="section">
                     <h1><?php echo $result['project_name'] ?></h1>
                     <p>
-                        投稿者：<?php echo "<a href='./userpage?id=".$result['user_id']."'>".$user['user_name']."</a>・".$result['project_datetime']."・".$rtn."閲覧" ?>
+                        投稿者：<?php echo "<a href='./userpage?id=" . $result['user_id'] . "'>" . $user['user_name'] . "</a>・" . $result['project_datetime'] . "・" . $rtn . "閲覧" ?>
                     </p>
                     <?php
                     if ($edit) {
                         echo '<form action="./edit.php" method="post">';
-                        echo "<input type='hidden' name='projectid' value='".$result['project_id']."'>";
+                        echo "<input type='hidden' name='projectid' value='" . $result['project_id'] . "'>";
                         echo '<input class="m-1" type="submit" value="編集/削除">';
                         echo "</form>";
                     }
                     ?>
                     <div class="m-1" id="tagfield">
                         <?php
-                            $data = $db->getTagsByProject($_GET['id']);
-                            foreach ($data as $key) {
-                                echo '<a class="taglink" href="./search?searchtype=3&search='.$key['tag_name'].'">'.htmlentities($key['tag_name'],ENT_QUOTES).'</a>';
-                            }
+                        $data = $db->getTagsByProject($_GET['id']);
+                        foreach ($data as $key) {
+                            echo '<a class="taglink" href="./search?searchtype=3&search=' . $key['tag_name'] . '">' . htmlentities($key['tag_name'], ENT_QUOTES) . '</a>';
+                        }
                         ?>
                     </div>
                     <div id="imgfield">
                         <?php
-                            for ($i=0; $i < 4; $i++) { 
-                                if (file_exists("./img/projectimg/".(int)$_GET['id']."/img".$i.".png")) {
-                                    echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic">';
-                                    break;
-                                }
+                        for ($i = 0; $i < 4; $i++) {
+                            if (file_exists("./img/projectimg/" . (int)$_GET['id'] . "/img" . $i . ".png")) {
+                                echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic">';
+                                break;
                             }
+                        }
                         ?>
                         <div id="imglist">
                             <?php
-                                for ($i = 0; $i < 4; $i++) {
-                                    if (file_exists("./img/projectimg/".(int)$_GET['id']."/img".$i.".png")) {
-                                        echo '<img width="20%" src="./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png" alt="pic'.$i.'" onclick="document.getElementById(`img`).src = `./img/projectimg/'.(int)$_GET['id'].'/img'.$i.'.png`">';
-                                    }
+                            for ($i = 0; $i < 4; $i++) {
+                                if (file_exists("./img/projectimg/" . (int)$_GET['id'] . "/img" . $i . ".png")) {
+                                    echo '<img width="20%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic' . $i . '" onclick="document.getElementById(`img`).src = `./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png`">';
                                 }
+                            }
                             ?>
                         </div>
                     </div>
@@ -123,9 +139,7 @@ $rtn = $db->cntView($_GET['id']);
             <?php require './php/prjlist.php'; ?>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./script/script.js"></script>
 </body>
 

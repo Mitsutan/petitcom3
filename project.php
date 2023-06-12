@@ -88,11 +88,16 @@ $rtn = $db->cntView($_GET['id']);
                     <p>
                         投稿者：<?php echo "<a href='./userpage?id=" . $result['user_id'] . "'>" . $user['user_name'] . "</a>・" . $result['project_datetime'] . "・" . $rtn . "閲覧" ?>
                     </p>
+                    <div>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<?= $result['project_name'] ?>|プチコン３号作品倉庫" data-hashtags="プチコン３号 #petitcom #プチコン３号作品倉庫" data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
                     <?php
                     if ($edit) {
                         echo '<form action="./edit.php" method="post">';
                         echo "<input type='hidden' name='projectid' value='" . $result['project_id'] . "'>";
-                        echo '<input class="m-1" type="submit" value="編集/削除">';
+                        // echo '<input class="m-1" type="submit" value="編集/削除">';
+                        echo '<button type="submit" class="m-1">編集/削除</button>';
                         echo "</form>";
                     }
                     ?>

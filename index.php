@@ -49,6 +49,7 @@ $db->OutPutlog();
                     <ul>
                         <li><a href="http://smilebasic.com/">プチコン３号公式サイト</a></li>
                         <li><a href="http://petitverse.hosiken.jp/community/petitcom/">プチコンシリーズユーザの交流場所、「Petitverse」</a></li>
+                        <li><a href="https://petc-archive.vercel.app/petc3gou/">まとめwikiのアーカイブ「プチコンまとめArchive」</a></li>
                     </ul>
                     <p>
                         現在<span class="fs-2 fw-bold" id="prjCnt">0</span>作品！

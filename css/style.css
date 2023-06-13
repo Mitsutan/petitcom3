@@ -177,3 +177,11 @@ div#dangerzone {
     background-color: #ff000016;
     padding: 0.5rem;
 }
+
+#public_key::before {
+    content: "【";
+}
+
+#public_key::after {
+    content: "】";
+}

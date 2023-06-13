@@ -88,9 +88,14 @@ $rtn = $db->cntView($_GET['id']);
                     <p>
                         投稿者：<?php echo "<a href='./userpage?id=" . $result['user_id'] . "'>" . $user['user_name'] . "</a>・" . $result['project_datetime'] . "・" . $rtn . "閲覧" ?>
                     </p>
-                    <div>
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<?= $result['project_name'] ?>|プチコン３号作品倉庫" data-hashtags="プチコン３号 #petitcom #プチコン３号作品倉庫" data-show-count="false">Tweet</a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="d-flex">
+                        <div class="me-1">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<?= $result['project_name'] ?>|プチコン３号作品倉庫" data-hashtags="プチコン３号 #petitcom #プチコン３号作品倉庫" data-show-count="false">Tweet</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                        <div>
+                            <a href="https://misskeyshare.link/share.html?text=<?= $result['project_name'] ?>|" class="d-flex" onclick="window.open(this.href+encodeURI(decodeURI(document.title))+'&url='+encodeURI(decodeURI(location.href)), '', 'width=500,height=400'); return false;"><img src="./img/notebutton.webp" width="80" height="20"></a>
+                        </div>
                     </div>
                     <?php
                     if ($edit) {

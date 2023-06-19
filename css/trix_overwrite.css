@@ -49,3 +49,11 @@ trix-editor {
     {
     margin-left: 1%;
 }
+
+trix-toolbar {
+    position: sticky;
+    top: 7vmin;
+    z-index: 1;
+    background-color: white;
+    padding-top: 5%;
+}

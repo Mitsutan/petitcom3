@@ -178,10 +178,18 @@ div#dangerzone {
     padding: 0.5rem;
 }
 
+#pk-title::before {
+    content: "プチコン３号公開キー";
+}
+
 #public_key::before {
     content: "【";
 }
 
 #public_key::after {
     content: "】";
+}
+
+pre {
+    font-family: smilebasic;
 }

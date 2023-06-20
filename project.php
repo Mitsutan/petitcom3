@@ -116,23 +116,25 @@ $rtn = $db->cntView($_GET['id']);
                         }
                         ?>
                     </div>
-                    <div id="imgfield">
-                        <?php
-                        for ($i = 0; $i < 4; $i++) {
-                            if (file_exists("./img/projectimg/" . (int)$_GET['id'] . "/img" . $i . ".png")) {
-                                echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic">';
-                                break;
-                            }
-                        }
-                        ?>
-                        <div id="imglist">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6" id="imgfield">
                             <?php
                             for ($i = 0; $i < 4; $i++) {
                                 if (file_exists("./img/projectimg/" . (int)$_GET['id'] . "/img" . $i . ".png")) {
-                                    echo '<img width="20%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic' . $i . '" onclick="document.getElementById(`img`).src = `./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png`">';
+                                    echo '<img id="img" class="mb-1" width="100%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic">';
+                                    break;
                                 }
                             }
                             ?>
+                            <div id="imglist">
+                                <?php
+                                for ($i = 0; $i < 4; $i++) {
+                                    if (file_exists("./img/projectimg/" . (int)$_GET['id'] . "/img" . $i . ".png")) {
+                                        echo '<img width="20%" src="./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png" alt="pic' . $i . '" onclick="document.getElementById(`img`).src = `./img/projectimg/' . (int)$_GET['id'] . '/img' . $i . '.png`">';
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <h2>公開キー</h2>

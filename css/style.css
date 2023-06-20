@@ -159,11 +159,11 @@ form#form>div>p {
     font-size: small;
 }
 
-div#imgfield {
+/* div#imgfield {
     width: fit-content;
     margin-bottom: 1%;
     width: 50%;
-}
+} */
 
 div#imglist {
     display: flex;

@@ -75,7 +75,7 @@ $rtn = $db->cntView($_GET['id']);
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.4/dist/trix.css">
     <link rel="stylesheet" href="css/trix_overwrite.css">
 
-    <title>プチコン３号作品倉庫</title>
+    <title>プチコン３号作品倉庫 - <?= $result['project_name'] ?></title>
 </head>
 
 <body>

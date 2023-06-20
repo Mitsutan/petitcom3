@@ -136,7 +136,7 @@ $rtn = $db->cntView($_GET['id']);
                         </div>
                     </div>
                     <h2>公開キー</h2>
-                    <pre class="text-uppercase bg-white border border-4 border-secondary rounded fs-6 d-inline-block text-center"><span class="bg-secondary text-white p-2" id="pk-title"></span><br /><span class="d-inline-block m-3" id="public_key"><?= $result['project_pk'] ?></span></pre>
+                    <pre class="text-uppercase bg-white border border-4 border-secondary rounded fs-6 d-inline-block text-center"><span class="bg-secondary text-white p-2 d-block" id="pk-title"></span><span class="d-block m-3" id="public_key"><?= $result['project_pk'] ?></span></pre>
                     <h2>概要</h2>
                     <div class="trix-content"><?php echo $result['project_description'] ?></div>
                     <div id="repfield">

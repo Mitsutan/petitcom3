@@ -133,7 +133,7 @@ a.taglink:hover {
     color: #000046;
 }
 
-form#form>div {
+form.form>div {
     margin-bottom: 1%;
 }
 
@@ -149,7 +149,7 @@ p.cardlinelimit {
     overflow: hidden;
 }
 
-form#form>div>p {
+form.form>div>p {
     margin-bottom: 2px;
 }
 

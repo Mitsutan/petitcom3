@@ -39,7 +39,7 @@ $result = $db->getUser($_SESSION['login_id']);
             <div class="col-12">
                 <div class="section">
                     <h1>プロフィール</h1>
-                    <form id="form" action="./php/mypage.php" method="post">
+                    <form class="form" action="./php/mypage.php" method="post">
                         <div>
                             <p class="required">メールアドレス</p>
                             <input type="email" name="mail" value="<?php echo $result['user_mail'] ?>" required>
@@ -56,6 +56,24 @@ $result = $db->getUser($_SESSION['login_id']);
                             <p>概要</p>
                             <input id="desc" type="hidden" name="description" value="<?php echo htmlspecialchars($result['user_description'], ENT_QUOTES) ?>">
                             <trix-editor input="desc" class="trix-content" placeholder="自己紹介などを書いてみましょう"></trix-editor>
+                        </div>
+                        <div>
+                            <input type="submit" value="変更">
+                        </div>
+                    </form>
+                    <h1>パスワードを変更する</h1>
+                    <form class="form" action="./php/logindata.php" method="post">
+                        <div>
+                            <p class="required">現在のパスワード</p>
+                            <input type="password" name="pass" required>
+                        </div>
+                        <div>
+                            <p class="required">新しいパスワード</p>
+                            <input type="password" name="newpass" required>
+                        </div>
+                        <div>
+                            <p class="required">新しいパスワード（確認）</p>
+                            <input type="password" name="newpass2" required>
                         </div>
                         <div>
                             <input type="submit" value="変更">

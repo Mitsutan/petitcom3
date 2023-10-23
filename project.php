@@ -39,6 +39,7 @@ if (isset($_SESSION['login_id']) && $_SESSION['login_auth'] != 1) {
         "great" => "disabled",
         "effort" => "disabled"
     ];
+    $userid = null;
 }
 
 $rtn = $db->cntView($_GET['id']);

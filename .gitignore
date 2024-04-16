@@ -5,3 +5,5 @@ img/projectimg/
 *.ttf
 .htaccess
 *.sql
+/vendor
+petitcom3-firebase-adminsdk-215ab-0968266c95.json
